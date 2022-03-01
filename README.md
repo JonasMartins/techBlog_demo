@@ -1,3 +1,3 @@
 ## TechBlog Demo
 
-souce: https://github.com/JonasMartins/project_b
+source: https://github.com/JonasMartins/project_b
