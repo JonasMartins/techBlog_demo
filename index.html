@@ -12,11 +12,15 @@
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;500&family=Source+Sans+Pro:wght@300;600&display=swap"
             rel="stylesheet"
         />
+
         <title>TechBlog - DEMO</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     </head>
     <body>
         <div class="container">
@@ -30,30 +34,53 @@
                     <h1 class="whiteTexColor">TechBlog - Demo</h1>
                 </div>
             </div>
+            <div class="language-row">
+                <div class="tooltip">
+                    <img
+                        src="images/brazil.png"
+                        class="language-button"
+                        onclick="changeLanguage('pt')"
+                    />
+                    <span class="tooltiptext"
+                        >Trocar linguagem para Português</span
+                    >
+                </div>
+
+                <div class="tooltip">
+                    <img
+                        src="images/united-kingdom.png"
+                        class="language-button"
+                        onclick="changeLanguage('eng')"
+                    />
+                    <span class="tooltiptext">Change Language to English</span>
+                </div>
+            </div>
+
             <div class="text">
-                <h2>About this Project</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Quisque tincidunt, ligula in lacinia porta, mauris lorem
-                    tempor turpis, et ullamcorper elit sapien eu nisi. Curabitur
-                    luctus est metus, quis posuere leo fringilla nec. Aenean
-                    dapibus, est non egestas commodo, leo diam tincidunt erat,
-                    semper suscipit nunc augue ac nunc. Integer consequat
-                    venenatis velit vitae facilisis. Morbi vitae molestie nunc,
-                    non vehicula enim. Nulla nunc leo, viverra sed mauris quis,
-                    maximus hendrerit neque. Class aptent taciti sociosqu ad
-                    litora torquent per conubia nostra, per inceptos himenaeos.
-                    Morbi ultricies dui non magna posuere, id blandit odio
-                    vulputate. Vivamus cursus varius varius. Proin aliquam dui
-                    ac hendrerit iaculis. Nulla sed lacus eu nibh semper iaculis
-                    id a tellus. Nullam scelerisque euismod risus sit amet
-                    consequat. Proin quis ipsum hendrerit, scelerisque risus et,
-                    tincidunt elit. Pellentesque et augue sed lorem tristique
-                    varius.
+                <h2 name="aboutTitle" class="text-content">
+                    About this Project
+                </h2>
+                <p name="aboutContent" class="text-content">
+                    TechBlog is a portfolio project, it's source code can be
+                    found at:
+                    <a href="https://github.com/JonasMartins/project_b"
+                        >https://github.com/JonasMartins/project_b</a
+                    >, it's goal is simulate an application based in a
+                    blog/social network, which uses <b>React JS</b> as front end
+                    and <b>Node JS</b> as back end, both written in
+                    <b>Typescript</b> and as SGBD was chose <b>PostgreSQL</b>.
+                    This project is similar to a social network, where any
+                    person with a valid email could create an account and
+                    interact with other users, keep conversations between them,
+                    create, react and comment on posts in your feed,
+                    improvements like OAuth and Email Provider, may be added in
+                    the future.
                 </p>
             </div>
             <div class="text">
-                <h2>Technologies Used</h2>
+                <h2 name="technologiesTitle" class="text-content">
+                    Technologies Used
+                </h2>
                 <div class="technologies">
                     <div class="tooltip">
                         <img
@@ -125,119 +152,129 @@
                     </div>
                 </div>
             </div>
+            <div class="text">
+                <h2 name="authTitle" class="text-content">Authentication</h2>
+                <p name="authContent" class="text-content">
+                    The authentication used in the project uses the library
+                    <b>express-session</b>, that when a user successfully enters
+                    the system, informing his unique e-mail and the password,
+                    the server returns to the client a <b>cookie</b> with the
+                    session id that was successfully saved. There are some
+                    alternatives for store these sessions on the server, a
+                    common option is to use <b>Redis</b>
+                    <a
+                        href="https://github.com/productioncoder/express-session-with-redis"
+                        >( example )</a
+                    >. After the cookie is saved on the client with the session
+                    id and other information of the logged in user , every
+                    request sent to the api, it is checked if the id of the sent
+                    session by the request is saved in the redis store, so there
+                    is a user logged in, all application routes perform this
+                    validation.
+                </p>
+            </div>
             <div class="gif">
-                <div class="text">
-                    <h2>Authentication</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Tempora, nihil? Excepturi suscipit non beatae
-                        corporis fugit molestiae ipsa amet magni perferendis
-                        provident, perspiciatis, minus qui eius quos nostrum
-                        accusantium itaque?
-                    </p>
-                </div>
                 <video width="854" height="480" controls>
                     <source src="videos/authentication.mp4" type="video/mp4" />
                 </video>
             </div>
 
+            <div class="text">
+                <h2 name="fileTitle" class="text-content">File Upload</h2>
+                <p name="fileContent" class="text-content">
+                    Allows the creation of posts with the attachment of multiple
+                    images, originally the images were hosted on
+                    <b>Microsoft Azure</b>, but in the development period for
+                    convenience, the blob files are now stored on the server's
+                    local disk, in the future when the project is put into
+                    production, the images most likely will back to be stored in
+                    the cloud, each user can also change their profile picture.
+                </p>
+            </div>
             <div class="gif">
-                <div class="text">
-                    <h2>File Upload</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Tempora, nihil? Excepturi suscipit non beatae
-                        corporis fugit molestiae ipsa amet magni perferendis
-                        provident, perspiciatis, minus qui eius quos nostrum
-                        accusantium itaque?
-                    </p>
-                </div>
                 <video width="854" height="480" controls>
                     <source src="videos/adding_new_post.mp4" type="video/mp4" />
                 </video>
             </div>
 
+            <div class="text">
+                <h2 name="notiTitle" class="text-content">
+                    Notification System
+                </h2>
+                <p name="notiContent" class="text-content">
+                    Initially, some user interactions with the system can
+                    generate notifications, currently, the interactions that
+                    cause notifications are, reacting to a post, commenting on a
+                    post or reply to a post comment, where the affected person
+                    receives a new notification. In the example below a user
+                    reacts and comments on a post, this generates a notification
+                    to the post author, this is done using
+                    <b>GraphQL Subscriptions</b>, which uses the
+                    <b>Web Socket</b> protocol.
+                </p>
+            </div>
             <div class="gif">
-                <div class="text">
-                    <h2>Notification System</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Tempora, nihil? Excepturi suscipit non beatae
-                        corporis fugit molestiae ipsa amet magni perferendis
-                        provident, perspiciatis, minus qui eius quos nostrum
-                        accusantium itaque?
-                    </p>
-                </div>
                 <video width="854" height="480" controls>
                     <source src="videos/notifications.mp4" type="video/mp4" />
                 </video>
             </div>
+            <div class="text">
+                <h2 name="chatTitle" class="text-content">Real Time Chats</h2>
+                <p name="chatContent" class="text-content">
+                    A notification system extension that simulates a real-time
+                    conversation, in the example below, a conversation is
+                    simulated, where the user who receives messages also receive
+                    a notification on the message's arrive moment.
+                </p>
+            </div>
             <div class="gif">
-                <div class="text">
-                    <h2>Real Time Chats</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Tempora, nihil? Excepturi suscipit non beatae
-                        corporis fugit molestiae ipsa amet magni perferendis
-                        provident, perspiciatis, minus qui eius quos nostrum
-                        accusantium itaque?
-                    </p>
-                </div>
                 <video width="854" height="480" controls>
                     <source src="videos/chat.mp4" type="video/mp4" />
                 </video>
             </div>
 
-            <div class="gif">
-                <div class="text">
-                    <h2>Connections</h2>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Tempora, nihil? Excepturi suscipit non beatae
-                        corporis fugit molestiae ipsa amet magni perferendis
-                        provident, perspiciatis, minus qui eius quos nostrum
-                        accusantium itaque?
-                    </p>
-                </div>
+            <div class="text">
+                <h2 name="connTitle" class="text-content">Connections</h2>
+                <p name="connContent" class="text-content">
+                    Connections between users, which also generate
+                    notifications, when a user has a connection, he can chat
+                    with her and receive her posts in his feed, the example
+                    below shows a connection request and the confirmation of the
+                    invitation by the other user.
+                </p>
+            </div>
 
+            <div class="gif">
                 <video width="854" height="480" controls>
                     <source src="videos/connect.mp4" type="video/mp4" />
                 </video>
             </div>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-                <!-- The Close Button -->
-                <span class="close">&times;</span>
-
-                <!-- Modal Content (The Image) -->
-                <img class="modal-content" id="img01" />
-
-                <!-- Modal Caption (Image Text) -->
-                <div id="caption"></div>
-            </div>
             <div class="footer">
                 <div class="tooltip">
-                    <img
-                        src="images/linkedin.png"
-                        alt="Linkedin"
-                        width="50px"
-                    />
+                    <a
+                        href="https://www.linkedin.com/in/jonas-martins-6079b519a/"
+                    >
+                        <img
+                            src="images/linkedin.png"
+                            alt="Linkedin"
+                            width="50px"
+                        />
+                    </a>
                     <span class="tooltiptext">Linkedin</span>
                 </div>
                 <div class="tooltip">
-                    <img src="images/github.png" alt="Github" width="50px" />
+                    <a href="https://github.com/jonasmartins">
+                        <img
+                            src="images/github.png"
+                            alt="Github"
+                            width="50px"
+                        />
+                    </a>
                     <span class="tooltiptext">Github</span>
                 </div>
             </div>
         </div>
     </body>
 </html>
-
-<!-- <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script> -->
 <script src="./main.js"></script>
